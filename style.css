@@ -1,0 +1,87 @@
+body {
+    min-height: 100%;
+    min-width: 100%;
+    background-color: antiquewhite;
+    font-family: sans-serif;
+}
+#container {
+    padding: 2rem;
+    margin: 2rem;
+    min-width: 300px;
+    max-width: 50%;
+    background-color: white;
+    border-radius: 2rem;
+    justify-self: center;
+}
+#title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+#searchContainer {
+    display: flex;
+    justify-self: center;
+}
+#inputCEP {
+    font-size: 1rem;
+    padding: 7px;
+    min-width: 80px;
+    max-width: 120px;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+    border-color: #ABF551;
+    border-style: solid;
+}
+#searchButton{
+    display: flex;
+    justify-content: center;
+    min-width: 100px;
+    background-color: #66F551;
+    border-color: #ABF551;
+    border-bottom-right-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-left-width: 0px;
+    border-style: solid;
+}
+#lupa {
+    max-width: 25px;
+    align-self: center;
+}
+#textSearch {
+    align-self: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+}
+#resultados {
+    font-size: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+}
+#infoContainer {
+    display: none;
+    margin: 10px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 1rem;
+}
+#localidade {
+    font-weight: bold;
+    margin-top: 0px;
+    font-size: 1.1rem;
+}
+#uf {
+    font-style: italic;
+    margin-bottom: 0px;
+    font-size: 1rem;
+}
+#creditos {
+    text-align: center;
+}
+.fade {
+    animation: fade-in-out 0.2s;
+}
+@keyframes fade-in-out{
+    50%{opacity: 10%;}
+}
