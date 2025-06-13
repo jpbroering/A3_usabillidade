@@ -4,7 +4,7 @@ function verificaCEP(cep) {
     if (cep.length == 9 && cep.indexOf("-") == 5) {
         cep = cep.replace(/[^0-9]/g, "");
         getCEP(cep);
-    } else if (cep.length === 8 && isNaN(parseInt(cep)) === true) {
+    } else if (cep.length === 8 && /^[0-9]+$/.test(cep)) {
         getCEP(cep);
     } else {
         alert("Formato de CEP inválido. Formato: 00000-000 ou 00000000");
