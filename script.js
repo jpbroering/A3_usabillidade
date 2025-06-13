@@ -1,13 +1,19 @@
 
 
 function verificaCEP(cep) {
-    if (cep.length == 9 && cep.indexOf("-") == 5) {
+    if (cep.length === 9 && cep.indexOf("-") == 5) {
         cep = cep.replace(/[^0-9]/g, "");
-        getCEP(cep);
+        if(cep.length === 8){
+            getCEP(cep);
+        } else {
+            alert("Formato de CEP inválido. Exemplo: 00000-000 ou 00000000");
+        }
+        
+        
     } else if (cep.length === 8 && /^[0-9]+$/.test(cep)) {
         getCEP(cep);
     } else {
-        alert("Formato de CEP inválido. Formato: 00000-000 ou 00000000");
+        alert("Formato de CEP inválido. Exemplo: 00000-000 ou 00000000");
     }
 
 }
@@ -19,7 +25,7 @@ async function getCEP(cep) {
         var dados = await resposta.json();
         mostraCEP(dados);
     } catch (erro) {
-        alert('Não encontrado', erro.message);
+        alert('CEP não encontrado', erro.message);
     }
 }
 
@@ -32,7 +38,7 @@ function buscaCEP() {
 
 function mostraCEP(dados) {
     if (dados.cep === undefined) {
-        return alert('Não encontrado');
+        return alert('CEP não encontrado');
     }
     document.getElementById("resultados").innerText = `Resultados de: ${dados.cep}`;
 
