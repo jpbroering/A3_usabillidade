@@ -2,10 +2,12 @@
 
 function verificaCEP(cep) {
     if (cep.length == 9 && cep.indexOf("-") == 5) {
-            cep = cep.replace(/[^0-9]/g, "");
-            getCEP(cep);
+        cep = cep.replace(/[^0-9]/g, "");
+        getCEP(cep);
+    } else if (cep.length == 8 && !isNaN(parseInt(cep)) === false) {
+        getCEP(cep);
     } else {
-        alert("Formato de CEP inválido. Formato: 00000-000");
+        alert("Formato de CEP inválido. Formato: 00000-000 ou 00000000");
     }
 
 }
@@ -29,24 +31,24 @@ function buscaCEP() {
 }
 
 function mostraCEP(dados) {
-    if(dados.cep === undefined){
+    if (dados.cep === undefined) {
         return alert('Não encontrado');
     }
     document.getElementById("resultados").innerText = `Resultados de: ${dados.cep}`;
-    
+
     document.getElementById("infoContainer").style = "display: block";
-    
+
     document.getElementById("localidade").innerText = `${dados.localidade}`;
-    if(dados.logradouro !== "" && dados.complemento !== "" && dados.bairro !== ""){
+    if (dados.logradouro !== "" && dados.complemento !== "" && dados.bairro !== "") {
         document.getElementById("logradouro").innerText = `${dados.logradouro} ${dados.complemento} - ${dados.bairro}`;
     } else {
         document.getElementById("logradouro").innerText = "—";
     }
-    
+
     document.getElementById("uf").innerText = `${dados.estado} - ${dados.uf}`;
 }
 
-function toggleButton(){
+function toggleButton() {
     const btn = document.getElementById("searchButton");
     btn.classList.remove("fade");
     void btn.offsetWidth;
