@@ -45,8 +45,10 @@ function mostraCEP(dados) {
     document.getElementById("infoContainer").style = "display: block";
 
     document.getElementById("localidade").innerText = `${dados.localidade}`;
-    if (dados.logradouro !== "" && dados.complemento !== "" && dados.bairro !== "") {
+    if(dados.logradouro !== "" && dados.complemento !== "" && dados.bairro !== ""){
         document.getElementById("logradouro").innerText = `${dados.logradouro} ${dados.complemento} - ${dados.bairro}`;
+    } else if(dados.logradouro !== ""){
+        document.getElementById("logradouro").innerText = `${dados.logradouro} ${dados.complemento}`;
     } else {
         document.getElementById("logradouro").innerText = "—";
     }
